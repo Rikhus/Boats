@@ -161,12 +161,13 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="MyProgModel.Accounts">
         <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="DateOfLastLogin" ColumnName="DateOfLastLogin" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Privileges" ColumnName="Privileges" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Passowd" ColumnName="Passowd" />
           <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
         </MappingFragment>

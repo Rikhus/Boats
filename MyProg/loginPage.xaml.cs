@@ -52,23 +52,54 @@ namespace MyProg
                     lblIsValid.Content = "Заполните все поля";
                     return;
                 }
-                var user = (from u in DataStorage.db.Accounts where u.Login == login && u.Passowd == pass select u).ToList();
+                var user = (from u in DataStorage.db.Accounts where u.Login == login && u.Password == pass select u).ToList();
 
 
                 if (user.Count != 0)
                 {
                     lblIsValid.Content = "";
                     DataStorage.accID = user[0].AccountID;
-                    var loginDate = DataStorage.db.Accounts.SingleOrDefault(l => l.AccountID == DataStorage.accID);
-                    if (loginDate != null)
+                    var acc = DataStorage.db.Accounts.SingleOrDefault(l => l.AccountID == DataStorage.accID);
+                    if (acc != null)
                     {
-                        loginDate.DateOfLastLogin = DateTime.Now;
-                        DataStorage.db.SaveChanges();
+                        var oldLoginDate = acc.DateOfLastLogin;
+                        if ((DateTime.Now - oldLoginDate).TotalDays > 14 && (DateTime.Now - oldLoginDate).TotalDays <= 30)
+                        {
+                            //каждые 14 дней надо менять пасс
+                            DataStorage.mainFrame.Navigate(new Uri("passChangePage.xaml", UriKind.Relative));
+                        }
+                        else
+                        {
+                            if ((DateTime.Now - oldLoginDate).TotalDays > 30 && acc.Privileges != "A")
+                            {
+                                //через 30 дней акк блочит
+                                lblIsValid.Content ="Аккаунт заблокирован";
+                            }
+                            else
+                            {
+                                //если наконец входим в акк
+                                acc.DateOfLastLogin = DateTime.Now;
+                                DataStorage.db.SaveChanges();
+                                if (acc.Privileges == "A")
+                                {
+                                    DataStorage.mainFrame.Navigate(new Uri("accountInfoPage.xaml", UriKind.Relative));
+                                }
+                                else if (acc.Privileges == "M")
+                                {
+                                    DataStorage.mainFrame.Navigate(new Uri("accountInfoForManagersPage.xaml", UriKind.Relative));
+                                }
+                                else if (acc.Privileges == "S")
+                                {
+                                    DataStorage.mainFrame.Navigate(new Uri("accountInfoForSellersPage.xaml", UriKind.Relative));
+                                }
+                            }
+                        }
                     }
-                    DataStorage.mainFrame.Navigate(new Uri("accountInfoPage.xaml", UriKind.Relative));
+                    
                 }
                 else
                 {
+                    //если тип неверно ввел
                     lblIsValid.Content = "Неверный логин/пароль";
                     TempData.loginsCount += 1;
                     if (TempData.loginsCount == 3)

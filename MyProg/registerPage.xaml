@@ -8,102 +8,19 @@
       d:DesignHeight="550" d:DesignWidth="800"
       Title="registerPage">
     <Page.Resources>
-       
-            <LinearGradientBrush x:Key="NormalBrush" StartPoint="0,0" EndPoint="0,1">
-                <GradientBrush.GradientStops>
-                    <GradientStopCollection>
-                        <GradientStop Color="Transparent" Offset="0.0"/>
-                        <GradientStop Color="Transparent" Offset="1.0"/>
-                    </GradientStopCollection>
-                </GradientBrush.GradientStops>
-            </LinearGradientBrush>
 
-            <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFFBE618" />
+        <LinearGradientBrush x:Key="NormalBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="Transparent" Offset="0.0"/>
+                    <GradientStop Color="Transparent" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
 
-            <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Border x:Name="Border" Grid.ColumnSpan="2" CornerRadius="2"
-  Background="{StaticResource NormalBrush}"
-                            BorderBrush="#FF302E2E"
-  BorderThickness="1" />
-                    <Border Grid.Column="0" CornerRadius="2,0,0,2" Margin="1" BorderBrush="#FF302E2E" Background="Transparent" BorderThickness="0,0,1,0" />
-                    <Path 
-  x:Name="Arrow"
-  Grid.Column="1"     
-  HorizontalAlignment="Center"
-  VerticalAlignment="Center"
-  Data="M 0 0 L 4 4 L 8 0 Z"/>
-                </Grid>
-            </ControlTemplate>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFFBE618" />
 
-            <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
-                <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
-            </ControlTemplate>
-
-
-            <Style x:Key="{x:Type ComboBox}" TargetType="ComboBox">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="ComboBox">
-                            <Grid>
-                                <ToggleButton 
-         Name="ToggleButton" 
-         Template="{StaticResource ComboBoxToggleButton}" 
-         Grid.Column="2" 
-         Focusable="false"
-         IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
-         ClickMode="Press">
-                                </ToggleButton>
-                                <ContentPresenter
-        Name="ContentSite"
-        IsHitTestVisible="False" 
-        Margin="3,3,23,3"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Left" />
-                                <TextBox x:Name="PART_EditableTextBox"
-         Style="{x:Null}" 
-         Template="{StaticResource ComboBoxTextBox}" 
-         HorizontalAlignment="Left" 
-         VerticalAlignment="Center" 
-         Margin="3,3,23,3"
-         Focusable="True" 
-         Background="Transparent"
-                                         Foreground="#FF302E2E"
-         Visibility="Hidden"
-         IsReadOnly="{TemplateBinding IsReadOnly}"/>
-                                <Popup 
-        Name="Popup"
-        Placement="Bottom"
-        IsOpen="{TemplateBinding IsDropDownOpen}"
-        AllowsTransparency="True" 
-        Focusable="False"
-        PopupAnimation="Slide">
-                                    <Grid 
-          Name="DropDown" 
-          SnapsToDevicePixels="True"                
-          MinWidth="{TemplateBinding ActualWidth}"
-          MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                                        <Border 
-            x:Name="DropDownBorder"
-            BorderBrush="#FF302E2E"                      
-            Background="Transparent"
-            BorderThickness="1"/>
-                                        <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True" Foreground="#FF302E2E">
-                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
-                                        </ScrollViewer>
-                                    </Grid>
-                                </Popup>
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-                <Style.Triggers>
-                </Style.Triggers>
-            </Style>
-            <Style x:Key="DatePickerStyle" TargetType="{x:Type DatePicker}">
+        <Style x:Key="DatePickerStyle" TargetType="{x:Type DatePicker}">
             <Setter Property="Foreground" Value="#FF302E2E"/>
             <Setter Property="IsTodayHighlighted" Value="True"/>
             <Setter Property="SelectedDateFormat" Value="Short"/>
@@ -263,41 +180,80 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="189*"/>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="176*"/>
-            <ColumnDefinition Width="176*"/>
-            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="116*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="148*"/>
+            <ColumnDefinition Width="149*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="86*"/>
-            <RowDefinition Height="54*"/>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="42*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="179*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
-        <Label Name="lblHeader" Content="Регистрация" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" Background="#FF007ACC" Grid.ColumnSpan="5"/>
-        <Label Content="Email: " Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="20" Grid.Row="2"/>
-        <Label Content="Пароль: " Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="20" Grid.Row="4"/>
-        <Label Content="Дата рождения: " Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="20" Grid.Row="6"/>
-        <Label Content="Привилегии: " Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="20" Grid.Row="8"/>
-        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2">
-            <TextBox Name="txtLogin" Text="" BorderThickness="0" Background="Transparent" FontSize="20" Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        </Border>
-        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2">
-            <PasswordBox Name="txtPass" BorderThickness="0" Background="Transparent" FontSize="20" Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        </Border>
-        <DatePicker Name="datePicker" SelectedDate="01/01/2000" BorderThickness="0" Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" Grid.Column="2" Grid.Row="6" Style="{DynamicResource DatePickerStyle}"/>
-        <ComboBox FontSize="16" BorderBrush="#FF302E2E" Foreground="#FF302E2E" Grid.Column="2" Grid.Row="8">
-            <ComboBoxItem>Admin</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">Manager</ComboBoxItem>
-            <ComboBoxItem>Seller</ComboBoxItem>
-        </ComboBox>
+        <Label Name="lblHeader" Content="Регистрация" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" Background="#FF007ACC" Grid.ColumnSpan="9"/>
+        <Label Content="Email: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Label Content="Пароль: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Label Content="Повторите пароль: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="6" Grid.ColumnSpan="2"/>
 
+        <Label Content="Дата рождения: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="8" Grid.ColumnSpan="2"/>
+        <Label Content="Привилегии: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="10" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3">
+            <TextBox Name="txtLogin" Text="" BorderThickness="0" Background="Transparent" FontSize="16" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Border>
+        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="12" Grid.ColumnSpan="3">
+            <TextBox Name="txtLastName" Text="" BorderThickness="0" Background="Transparent" FontSize="16" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Border>
+        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="14" Grid.ColumnSpan="3">
+            <TextBox Name="txtFirstName" Text="" BorderThickness="0" Background="Transparent" FontSize="16" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Border>
+
+        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="3">
+            <PasswordBox Name="txtPass" BorderThickness="0" Background="Transparent" FontSize="16" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Border>
+        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="3">
+            <PasswordBox Name="txtPassRepeat" BorderThickness="0" Background="Transparent" FontSize="16" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Border>
+        <DatePicker Name="datePicker" SelectedDate="01/01/2000" BorderThickness="0" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" Grid.Column="3" Grid.Row="8" Style="{DynamicResource DatePickerStyle}" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="3" Grid.Row="10" Grid.ColumnSpan="2">
+            <ComboBox Name="cmbPrivileges" FontSize="16" BorderBrush="#FF302E2E" Foreground="#FF007ACC" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0">
+                <ComboBoxItem>Admin</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Manager</ComboBoxItem>
+                <ComboBoxItem>Seller</ComboBoxItem>
+            </ComboBox>
+        </Border>
+        <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="7" Grid.Row="10" >
+            <ComboBox Name="cmbSex" FontSize="16" BorderBrush="#FF302E2E" Foreground="#FF007ACC" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0">
+                <ComboBoxItem IsSelected="True">Мужской</ComboBoxItem>
+                <ComboBoxItem>Женский</ComboBoxItem>
+                <ComboBoxItem>Другой</ComboBoxItem>
+            </ComboBox>
+        </Border>
+        <Button x:Name="btnRegister" Content="Зарегистрировать" Background="#FF007ACC" Foreground="White" FontSize="18" Grid.Column="4" Grid.Row="16" Grid.ColumnSpan="3" Click="BtnRegister_Click"/>
+        <Label Grid.Row="18" Grid.Column="1" x:Name="lblIsValid" Content="" Foreground="#FFFF4600" FontSize="13" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="7"/>
+        <Label Content="Имя: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="14" Grid.ColumnSpan="2"/>
+        <Label Content="Фамилия: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="12" Grid.ColumnSpan="2"/>
+        <Label Content="Пол: " Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" Grid.Row="10" Grid.Column="6"/>
     </Grid>
 </Page>

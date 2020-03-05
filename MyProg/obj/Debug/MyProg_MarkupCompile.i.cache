@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\App.xaml
-41497841116
+7979514443
 2902824457
-30-867325185
+33-1744838629
 191029241633
-accountInfoPage.xaml;loginPage.xaml;MainWindow.xaml;registerPage.xaml;
+accountInfoForManagersPage.xaml;accountInfoForSellersPage.xaml;accountInfoPage.xaml;loginPage.xaml;MainWindow.xaml;passChangePage.xaml;registerPage.xaml;
 
-True
+False
 

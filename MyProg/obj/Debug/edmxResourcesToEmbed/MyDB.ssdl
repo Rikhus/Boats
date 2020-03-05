@@ -28,12 +28,13 @@
     </Key>
     <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Passowd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Privileges" Type="varchar" MaxLength="1" Nullable="false" />
     <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="DateOfLastLogin" Type="date" Nullable="false" />
+    <Property Name="Sex" Type="varchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="Boat">
     <Key>

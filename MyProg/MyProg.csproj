@@ -74,6 +74,12 @@
     <Compile Include="AccessoryOfBoat.cs">
       <DependentUpon>MyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="accountInfoForManagersPage.xaml.cs">
+      <DependentUpon>accountInfoForManagersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="accountInfoForSellersPage.xaml.cs">
+      <DependentUpon>accountInfoForSellersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="accountInfoPage.xaml.cs">
       <DependentUpon>accountInfoPage.xaml</DependentUpon>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Partners.cs">
       <DependentUpon>MyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="passChangePage.xaml.cs">
+      <DependentUpon>passChangePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="registerPage.xaml.cs">
       <DependentUpon>registerPage.xaml</DependentUpon>
     </Compile>
@@ -125,6 +134,14 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>MyDB.tt</DependentUpon>
     </Compile>
+    <Page Include="accountInfoForManagersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="accountInfoForSellersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="accountInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,6 +162,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="passChangePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="registerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

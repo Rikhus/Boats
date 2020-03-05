@@ -16,13 +16,12 @@ using System.Windows.Shapes;
 namespace MyProg
 {
     /// <summary>
-    /// Логика взаимодействия для accountInfoPage.xaml
+    /// Логика взаимодействия для accountInfoForManagers.xaml
     /// </summary>
-    public partial class accountInfoPage : Page
+    public partial class accountInfoForManagers : Page
     {
-        public accountInfoPage()
+        public accountInfoForManagers()
         {
-            //тут вся инфа об акке
             InitializeComponent();
             var user = (from u in DataStorage.db.Accounts where u.AccountID == DataStorage.accID select u).ToList();
             lblFirstName.Content = user[0].FirstName;
@@ -35,7 +34,7 @@ namespace MyProg
                     break;
                 case "M":
                     lblPrivilege.Content = "Manager";
-                    break;                
+                    break;
             }
             switch (user[0].Sex)
             {
@@ -54,15 +53,9 @@ namespace MyProg
             }
         }
 
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-            DataStorage.mainFrame.Navigate(new Uri("registerPage.xaml", UriKind.Relative));
-        }
-
         private void BtnChangePass_Click(object sender, RoutedEventArgs e)
         {
             DataStorage.mainFrame.Navigate(new Uri("passChangePage.xaml", UriKind.Relative));
         }
     }
 }
-    

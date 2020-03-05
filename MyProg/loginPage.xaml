@@ -31,12 +31,12 @@
             <ColumnDefinition Width="45*"/>
         </Grid.ColumnDefinitions>
         <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
-            <TextBox Name="txtLogin" Text="" BorderThickness="0" Background="Transparent" FontSize="25" Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Name="txtLogin" Text="" BorderThickness="0" Background="Transparent" FontSize="25" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Border>
         <Border BorderBrush="#FF007ACC" BorderThickness="0,0,0,1" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3">
-            <PasswordBox Name="txtPass" BorderThickness="0" Background="Transparent" FontSize="25" Foreground="#FF302E2E" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <PasswordBox Name="txtPass" BorderThickness="0" Background="Transparent" FontSize="25" Foreground="#FF007ACC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Border>
-        <Label Content="Вход" Foreground="White" FontWeight="Bold" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="36" Background="#FF007ACC" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
+        <Label Content="Вход" Foreground="White" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="36" Background="#FF007ACC" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
         <Label Content="" Background="#FF007ACC" Grid.Row="2" Grid.ColumnSpan="5"/>
         <Button Name="btnLogin" Click="btnLogin_Click" Content="Войти" Background="#FF007ACC" Foreground="White" FontSize="25" Grid.Column="2" Grid.Row="8"/>
         <Label Name="lblIsValid" Content="" Foreground="#FFFF4600" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="3"/>

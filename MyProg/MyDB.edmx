@@ -33,12 +33,13 @@
           </Key>
           <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Passowd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Privileges" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="DateOfLastLogin" Type="date" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="Boat">
           <Key>
@@ -712,12 +713,13 @@
           </Key>
           <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Passowd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Privileges" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" Nullable="false" />
           <Property Name="DateOfLastLogin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -885,12 +887,13 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="MyProgModel.Accounts">
               <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="DateOfLastLogin" ColumnName="DateOfLastLogin" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Privileges" ColumnName="Privileges" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="Passowd" ColumnName="Passowd" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="AccountID" ColumnName="AccountID" />
               </MappingFragment>

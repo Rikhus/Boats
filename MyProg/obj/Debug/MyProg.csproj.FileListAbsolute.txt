@@ -25,3 +25,7 @@ D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\accountInfoPage.g
 D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\accountInfoPage.baml
 D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\registerPage.g.cs
 D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\registerPage.baml
+D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\passChangePage.g.cs
+D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\passChangePage.baml
+D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\accountInfoForManagersPage.g.cs
+D:\ИС-181б\Хусаинов Р\УП\MyProg\MyProg\obj\Debug\accountInfoForManagersPage.baml
