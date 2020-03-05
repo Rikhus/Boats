@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyProgModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="MyProgEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Accessory" EntityType="MyProgModel.Accessory" />
+    <EntitySet Name="AccessoryOfBoat" EntityType="MyProgModel.AccessoryOfBoat" />
+    <EntitySet Name="Boat" EntityType="MyProgModel.Boat" />
+    <EntitySet Name="charactDelivery" EntityType="MyProgModel.charactDelivery" />
+    <EntitySet Name="Clients" EntityType="MyProgModel.Clients" />
+    <EntitySet Name="Delivery" EntityType="MyProgModel.Delivery" />
+    <EntitySet Name="Managers" EntityType="MyProgModel.Managers" />
+    <EntitySet Name="Orders" EntityType="MyProgModel.Orders" />
+    <EntitySet Name="Partners" EntityType="MyProgModel.Partners" />
+    <EntitySet Name="Score" EntityType="MyProgModel.Score" />
+    <AssociationSet Name="FK__Accessory__Acces__7A3223E8" Association="MyProgModel.FK__Accessory__Acces__7A3223E8">
+      <End Role="Accessory" EntitySet="Accessory" />
+      <End Role="AccessoryOfBoat" EntitySet="AccessoryOfBoat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Accessory__Partn__671F4F74" Association="MyProgModel.FK__Accessory__Partn__671F4F74">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Accessory" EntitySet="Accessory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__charactDe__Acces__73852659" Association="MyProgModel.FK__charactDe__Acces__73852659">
+      <End Role="Accessory" EntitySet="Accessory" />
+      <End Role="charactDelivery" EntitySet="charactDelivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Accessory__Boat___7B264821" Association="MyProgModel.FK__Accessory__Boat___7B264821">
+      <End Role="Boat" EntitySet="Boat" />
+      <End Role="AccessoryOfBoat" EntitySet="AccessoryOfBoat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery__Boat_I__70A8B9AE" Association="MyProgModel.FK__Delivery__Boat_I__70A8B9AE">
+      <End Role="Boat" EntitySet="Boat" />
+      <End Role="Delivery" EntitySet="Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__charactDe__Order__74794A92" Association="MyProgModel.FK__charactDe__Order__74794A92">
+      <End Role="Delivery" EntitySet="Delivery" />
+      <End Role="charactDelivery" EntitySet="charactDelivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Delivery__Custom__6FB49575" Association="MyProgModel.FK__Delivery__Custom__6FB49575">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Delivery" EntitySet="Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Order_ID__7755B73D" Association="MyProgModel.FK__Orders__Order_ID__7755B73D">
+      <End Role="Delivery" EntitySet="Delivery" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Delivery_Managers" Association="MyProgModel.FK_Delivery_Managers">
+      <End Role="Managers" EntitySet="Managers" />
+      <End Role="Delivery" EntitySet="Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Score__Contract___7E02B4CC" Association="MyProgModel.FK__Score__Contract___7E02B4CC">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MyProgModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MyProgModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Accounts" EntityType="MyProgModel.Accounts" />
+  </EntityContainer>
+  <EntityType Name="Accessory">
+    <Key>
+      <PropertyRef Name="Accessory_ID" />
+    </Key>
+    <Property Name="Accessory_ID" Type="Int32" Nullable="false" />
+    <Property Name="AccName" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="DescriptionOfAccessory" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="VAT" Type="Int32" Nullable="false" />
+    <Property Name="Inventory" Type="Int32" Nullable="false" />
+    <Property Name="OrderLevel" Type="Int32" Nullable="false" />
+    <Property Name="OrderBatch" Type="Int32" Nullable="false" />
+    <Property Name="Partner_ID" Type="Int32" />
+    <NavigationProperty Name="AccessoryOfBoat" Relationship="MyProgModel.FK__Accessory__Acces__7A3223E8" FromRole="Accessory" ToRole="AccessoryOfBoat" />
+    <NavigationProperty Name="Partners" Relationship="MyProgModel.FK__Accessory__Partn__671F4F74" FromRole="Accessory" ToRole="Partners" />
+    <NavigationProperty Name="charactDelivery" Relationship="MyProgModel.FK__charactDe__Acces__73852659" FromRole="Accessory" ToRole="charactDelivery" />
+  </EntityType>
+  <EntityType Name="AccessoryOfBoat">
+    <Key>
+      <PropertyRef Name="Fit_ID" />
+    </Key>
+    <Property Name="Fit_ID" Type="Int32" Nullable="false" />
+    <Property Name="Accessory_ID" Type="Int32" />
+    <Property Name="Boat_ID" Type="Int32" />
+    <NavigationProperty Name="Accessory" Relationship="MyProgModel.FK__Accessory__Acces__7A3223E8" FromRole="AccessoryOfBoat" ToRole="Accessory" />
+    <NavigationProperty Name="Boat" Relationship="MyProgModel.FK__Accessory__Boat___7B264821" FromRole="AccessoryOfBoat" ToRole="Boat" />
+  </EntityType>
+  <EntityType Name="Boat">
+    <Key>
+      <PropertyRef Name="boat_ID" />
+    </Key>
+    <Property Name="boat_ID" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="BoatType" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="NumberOfRowers" Type="Byte" Nullable="false" />
+    <Property Name="Mast" Type="Boolean" Nullable="false" />
+    <Property Name="Colour" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Wood" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BasePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="VAT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AccessoryOfBoat" Relationship="MyProgModel.FK__Accessory__Boat___7B264821" FromRole="Boat" ToRole="AccessoryOfBoat" />
+    <NavigationProperty Name="Delivery" Relationship="MyProgModel.FK__Delivery__Boat_I__70A8B9AE" FromRole="Boat" ToRole="Delivery" />
+  </EntityType>
+  <EntityType Name="charactDelivery">
+    <Key>
+      <PropertyRef Name="Detail_ID" />
+    </Key>
+    <Property Name="Detail_ID" Type="Int32" Nullable="false" />
+    <Property Name="Accessory_ID" Type="Int32" />
+    <Property Name="Order_ID" Type="Int32" />
+    <NavigationProperty Name="Accessory" Relationship="MyProgModel.FK__charactDe__Acces__73852659" FromRole="charactDelivery" ToRole="Accessory" />
+    <NavigationProperty Name="Delivery" Relationship="MyProgModel.FK__charactDe__Order__74794A92" FromRole="charactDelivery" ToRole="Delivery" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Customer_ID" />
+    </Key>
+    <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="FamilyName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="OrganisationName" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="IDNumber" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="IDDocumentName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Delivery" Relationship="MyProgModel.FK__Delivery__Custom__6FB49575" FromRole="Clients" ToRole="Delivery" />
+  </EntityType>
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="Order_ID" />
+    </Key>
+    <Property Name="Order_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salesperson_ID" Type="Int32" Nullable="false" />
+    <Property Name="Customer_ID" Type="Int32" />
+    <Property Name="Boat_ID" Type="Int32" />
+    <Property Name="DeliveryAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Boat" Relationship="MyProgModel.FK__Delivery__Boat_I__70A8B9AE" FromRole="Delivery" ToRole="Boat" />
+    <NavigationProperty Name="charactDelivery" Relationship="MyProgModel.FK__charactDe__Order__74794A92" FromRole="Delivery" ToRole="charactDelivery" />
+    <NavigationProperty Name="Clients" Relationship="MyProgModel.FK__Delivery__Custom__6FB49575" FromRole="Delivery" ToRole="Clients" />
+    <NavigationProperty Name="Orders" Relationship="MyProgModel.FK__Orders__Order_ID__7755B73D" FromRole="Delivery" ToRole="Orders" />
+    <NavigationProperty Name="Managers" Relationship="MyProgModel.FK_Delivery_Managers" FromRole="Delivery" ToRole="Managers" />
+  </EntityType>
+  <EntityType Name="Managers">
+    <Key>
+      <PropertyRef Name="SalesPerson_ID" />
+    </Key>
+    <Property Name="SalesPerson_ID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="FamilyName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Delivery" Relationship="MyProgModel.FK_Delivery_Managers" FromRole="Managers" ToRole="Delivery" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Contract_ID" />
+    </Key>
+    <Property Name="Contract_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DepositPayed" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Order_ID" Type="Int32" />
+    <Property Name="ContractTotalPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ContracTotalPrice_inclVAT" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ProductionProcess" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Delivery" Relationship="MyProgModel.FK__Orders__Order_ID__7755B73D" FromRole="Orders" ToRole="Delivery" />
+    <NavigationProperty Name="Score" Relationship="MyProgModel.FK__Score__Contract___7E02B4CC" FromRole="Orders" ToRole="Score" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="Partner_ID" />
+    </Key>
+    <Property Name="Partner_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Accessory" Relationship="MyProgModel.FK__Accessory__Partn__671F4F74" FromRole="Partners" ToRole="Accessory" />
+  </EntityType>
+  <EntityType Name="Score">
+    <Key>
+      <PropertyRef Name="Invoice_ID" />
+    </Key>
+    <Property Name="Invoice_ID" Type="Int32" Nullable="false" />
+    <Property Name="Contract_ID" Type="Int32" />
+    <Property Name="Settled" Type="Boolean" Nullable="false" />
+    <Property Name="Sum" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Sum_inclVAT" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Orders" Relationship="MyProgModel.FK__Score__Contract___7E02B4CC" FromRole="Score" ToRole="Orders" />
+  </EntityType>
+  <Association Name="FK__Accessory__Acces__7A3223E8">
+    <End Type="MyProgModel.Accessory" Role="Accessory" Multiplicity="0..1" />
+    <End Type="MyProgModel.AccessoryOfBoat" Role="AccessoryOfBoat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accessory">
+        <PropertyRef Name="Accessory_ID" />
+      </Principal>
+      <Dependent Role="AccessoryOfBoat">
+        <PropertyRef Name="Accessory_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Accessory__Partn__671F4F74">
+    <End Type="MyProgModel.Partners" Role="Partners" Multiplicity="0..1" />
+    <End Type="MyProgModel.Accessory" Role="Accessory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="Partner_ID" />
+      </Principal>
+      <Dependent Role="Accessory">
+        <PropertyRef Name="Partner_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__charactDe__Acces__73852659">
+    <End Type="MyProgModel.Accessory" Role="Accessory" Multiplicity="0..1" />
+    <End Type="MyProgModel.charactDelivery" Role="charactDelivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accessory">
+        <PropertyRef Name="Accessory_ID" />
+      </Principal>
+      <Dependent Role="charactDelivery">
+        <PropertyRef Name="Accessory_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Accessory__Boat___7B264821">
+    <End Type="MyProgModel.Boat" Role="Boat" Multiplicity="0..1" />
+    <End Type="MyProgModel.AccessoryOfBoat" Role="AccessoryOfBoat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Boat">
+        <PropertyRef Name="boat_ID" />
+      </Principal>
+      <Dependent Role="AccessoryOfBoat">
+        <PropertyRef Name="Boat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery__Boat_I__70A8B9AE">
+    <End Type="MyProgModel.Boat" Role="Boat" Multiplicity="0..1" />
+    <End Type="MyProgModel.Delivery" Role="Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Boat">
+        <PropertyRef Name="boat_ID" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="Boat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__charactDe__Order__74794A92">
+    <End Type="MyProgModel.Delivery" Role="Delivery" Multiplicity="0..1" />
+    <End Type="MyProgModel.charactDelivery" Role="charactDelivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="charactDelivery">
+        <PropertyRef Name="Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Delivery__Custom__6FB49575">
+    <End Type="MyProgModel.Clients" Role="Clients" Multiplicity="0..1" />
+    <End Type="MyProgModel.Delivery" Role="Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Customer_ID" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="Customer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Order_ID__7755B73D">
+    <End Type="MyProgModel.Delivery" Role="Delivery" Multiplicity="0..1" />
+    <End Type="MyProgModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Delivery_Managers">
+    <End Type="MyProgModel.Managers" Role="Managers" Multiplicity="1" />
+    <End Type="MyProgModel.Delivery" Role="Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Managers">
+        <PropertyRef Name="SalesPerson_ID" />
+      </Principal>
+      <Dependent Role="Delivery">
+        <PropertyRef Name="Salesperson_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Score__Contract___7E02B4CC">
+    <End Type="MyProgModel.Orders" Role="Orders" Multiplicity="0..1" />
+    <End Type="MyProgModel.Score" Role="Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Contract_ID" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="Contract_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Passowd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Privileges" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="DateOfLastLogin" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+</Schema>

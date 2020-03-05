@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="07075b2b67dc4af790a4a1078945ddac" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="MyProgModel.Accessory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MyProgModel.AccessoryOfBoat" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="MyProgModel.Boat" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="MyProgModel.charactDelivery" Width="1.5" PointX="8.25" PointY="4.375" />
+        <EntityTypeShape EntityType="MyProgModel.Clients" Width="1.5" PointX="3.75" PointY="9" />
+        <EntityTypeShape EntityType="MyProgModel.Delivery" Width="1.5" PointX="6" PointY="4.75" />
+        <EntityTypeShape EntityType="MyProgModel.Managers" Width="1.5" PointX="3.75" PointY="2.5" />
+        <EntityTypeShape EntityType="MyProgModel.Orders" Width="1.5" PointX="8.25" PointY="7.75" />
+        <EntityTypeShape EntityType="MyProgModel.Partners" Width="1.5" PointX="1.5" PointY="9.125" />
+        <EntityTypeShape EntityType="MyProgModel.Score" Width="1.5" PointX="10.5" PointY="8" />
+        <AssociationConnector Association="MyProgModel.FK__Accessory__Acces__7A3223E8" />
+        <AssociationConnector Association="MyProgModel.FK__Accessory__Partn__671F4F74" />
+        <AssociationConnector Association="MyProgModel.FK__charactDe__Acces__73852659" />
+        <AssociationConnector Association="MyProgModel.FK__Accessory__Boat___7B264821" />
+        <AssociationConnector Association="MyProgModel.FK__Delivery__Boat_I__70A8B9AE" />
+        <AssociationConnector Association="MyProgModel.FK__charactDe__Order__74794A92" />
+        <AssociationConnector Association="MyProgModel.FK__Delivery__Custom__6FB49575" />
+        <AssociationConnector Association="MyProgModel.FK__Orders__Order_ID__7755B73D" />
+        <AssociationConnector Association="MyProgModel.FK_Delivery_Managers" />
+        <AssociationConnector Association="MyProgModel.FK__Score__Contract___7E02B4CC" />
+        <EntityTypeShape EntityType="MyProgModel.Accounts" Width="1.5" PointX="6.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
